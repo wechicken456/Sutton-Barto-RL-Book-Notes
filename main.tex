@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage{titling}
+\usepackage{datetime}
+\usepackage{geometry}
+\usepackage{amsmath, amssymb, bbm}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{utils}
+
+
+% Create a title without headers/footers
+\geometry{margin=1in}
+\pagestyle{empty}
+
+% Define title page content
+\title{\LARGE Sutton \& Barto RL Book Notes}
+\author{\large Tin Vuong}
+\date{\today}
+
+\setlength{\parindent}{0pt}
+
+
+% redefine the maketitle command
+\renewcommand{\maketitle}{
+    \begin{titlingpage}
+        \vspace*{\fill}
+        \begin{center}
+            {\LARGE\bfseries \thetitle \par}
+            \vspace{2cm}
+            {\large \theauthor \par}
+            \vspace{1cm}
+            {\large \thedate \par}
+        \end{center}
+        \vspace*{\fill}
+    \end{titlingpage}
+}
+
+\begin{document}
+\maketitle
+
+\include{chapter2/chapter2}
+\include{chapter3/chapter3}
+
+\end{document}

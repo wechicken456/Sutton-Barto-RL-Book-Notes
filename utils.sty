@@ -1,0 +1,30 @@
+\ProvidesPackage{utils}[2025/05/20 Utility commands for LaTeX documents]
+ 
+% Counter for exercise numbers
+\newcounter{exerciseNum}[section]
+
+% Define the new command \QuestionAnswer
+% It takes two arguments: #1 for the question, #2 for the answer.
+\newcommand{\QuestionAnswer}[2]{%
+  % Increment the exerciseNum counter for the current section.
+  % \refstepcounter also allows this number to be referenced with \label and \ref if needed.
+  \refstepcounter{exerciseNum}%
+  % Start the Q&A block as a new paragraph.
+  \par
+  % Ensure the question line starts without an indent.
+  \noindent
+  % Automatically generate and format "Exercise X.Y."
+  % \thesection gives the current section number (e.g., "3")
+  % \theexerciseNum gives the current exerciseNum value (e.g., "1", "2", etc.)
+  \underline{\textit{Exercise \thesection.\theexerciseNum.}} % The dot after \theexerciseNum is included.
+  % Typeset the question text provided in the first argument (#1).
+  #1\par%
+  % Space between question and answer.
+  \vspace{0.4cm}%
+  % Ensure the answer line starts without an indent.
+  \noindent
+  % Typeset "Answer: " followed by the answer text from the second argument (#2).
+  \underline{\textit{Answer}}: #2\par%
+  % Space after the answer.
+  \vspace{0.65cm}%
+}
